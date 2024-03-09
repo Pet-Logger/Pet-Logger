@@ -3,29 +3,29 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: "plugin:react/recommended",
+  extends: 'plugin:react/recommended',
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [".eslintrc.{js,cjs}"],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
-        sourceType: "script",
+        sourceType: 'script',
       },
     },
   ],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  plugins: ["react"],
+  plugins: ['react'],
   rules: {
-    indent: ["warn", 2],
-    "no-unused-vars": ["off", { vars: "local" }],
-    "prefer-const": "warn",
-    quotes: ["warn", "single"],
-    semi: ["warn", "always"],
-    "space-infix-ops": "warn",
+    indent: ['warn', 2],
+    'no-unused-vars': ['off', { vars: 'local' }],
+    'prefer-const': 'warn',
+    quotes: ['warn', 'single'],
+    semi: ['warn', 'always'],
+    'space-infix-ops': 'warn',
   },
 };

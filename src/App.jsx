@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const App = () => {
   return (
@@ -8,7 +8,7 @@ const App = () => {
       <p>Hello Guys Bongi</p>
     </div>
     
-  )
-}
+  );
+};
 
 export default App;
