@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+//import { useNavigate } from "react-router-dom";
 
 
 const breedArray = ['Husky', 'Golden Retreiver', 'Dalmatian', 'German Shepard', 'Lab', 'Beagle', 'Poodle']
@@ -22,15 +23,15 @@ const AddNewComponent = () => {
   
   const saveCharacter = () => {
     // check if name is empty
-      const body = {
-        name,
-        age,
-        breed,
-        gender,
-      };
-      console.log("req.body", body)
+    const body = {
+      name,
+      age,
+      breed,
+      gender,
+    };
+    console.log("req.body", body)
 
-  //     fetch('/api/character', {
+  //     fetch('/api/dog', {
   //       method: 'POST',
   //       headers: {
   //         'Content-Type': 'Application/JSON'
@@ -42,9 +43,10 @@ const AddNewComponent = () => {
   //         console.log(data);
   //       })
   //       .then(() => {
-  //         props.history.push('/');
+    //        useNavigate('')
+  //         //props.history.push('/');
   //       })
-  //       .catch(err => console.log('CreateCharacter fetch /api/character: ERROR: ', err));
+  //       .catch(err => console.log(' add dependent fetch /api/character: ERROR: ', err));
   //   }
   };
 
@@ -63,6 +65,7 @@ const AddNewComponent = () => {
         </select> 
         <label htmlFor="gender">Gender:</label>
         <select id="gender" name="gender" value={gender} onChange={genderOnChange}>
+        <option value="blank">-</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select> 
