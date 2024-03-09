@@ -5,7 +5,7 @@
 // 	Breed: string
 // 	gender: string,
 // 	Users: [userID: integer]
-// 	Posts: [{type: string, details: string, date:date}]
+// 	Posts: [{postType: string, details: string, date:date}]
 // }
 
 // GET REQUEST TO LOAD ALL DEPENDENTS. Info needed: name and image and id. Type for response : ARRAY of dog objects

@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'development') {
 // parsing requests to json
 app.use(express.json());
 // define the route handlers
-app.use('/dog', petLoggerRouter);
+app.use('/api', petLoggerRouter);
 
 // Unkown route handler here
 app.use('*', (req, res) => {
