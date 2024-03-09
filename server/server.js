@@ -1,9 +1,9 @@
-const path = require('path'); 
+const path = require('path');
 const express = require('express');
 
-const app = express(); 
+const app = express();
+const PORT = 3000;
 
-const PORT = 3000; 
 
 if (process.env.NODE_ENV === 'development') {
   app.use(express.static(path.resolve(__dirname, '../src')));
@@ -12,9 +12,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 
-
-app.listen(PORT, ()=> {
-  console.log(`server listening on port ${PORT}: http://localhost:${PORT}/`); 
-})
+app.listen(PORT, () => {
+  console.log(`server listening on port ${PORT}: http://localhost:${PORT}/`);
+});
 
 module.exports = app; 
