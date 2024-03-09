@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/server.js",
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open --hot",
+    "dev": "nodemon server/server.js & NODE_ENV=development webpack serve --open --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
