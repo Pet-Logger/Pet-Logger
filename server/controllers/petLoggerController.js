@@ -18,3 +18,16 @@
 // Endpoint: localhost:3000/dog
 // Body: { name, breed, age, gender }
 // Controller Method: addDog
+
+const petLoggerController = {};
+
+// GET: middleware for retreiving a dog data
+petLoggerController.getDog = (req, res, next) => {};
+
+// POST: middleware for adding a new dog
+petLoggerController.addDog = (req, res, next) => {
+  const { name, breed, age, gender } = req.body;
+  next();
+};
+
+module.exports = petLoggerController;
