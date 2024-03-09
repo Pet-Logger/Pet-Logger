@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
+// const { MongoClient, ServerApiVersion } = require('mongodb');
 const { Schema } = mongoose;
 
 const uri =
-  'mongodb+srv://bongisiba:<password>@petloggercluster.afs6n5g.mongodb.net/?retryWrites=true&w=majority&appName=PetLoggerCluster';
+  'mongodb+srv://bongisiba:9amflRSy13ObViXE@petloggercluster.afs6n5g.mongodb.net/?retryWrites=true&w=majority&appName=PetLoggerCluster';
 
 mongoose
   .connect(uri, {
     // options for the connect method to parse the URI
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
     // sets the name of the DB that our collections are part of
     dbName: 'petLogger',
   })
@@ -17,7 +16,7 @@ mongoose
 
 //user Schema
 const userSchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique:true },
   userName: { type: String, required: true },
   password: { type: String, required: true },
 });
@@ -40,7 +39,8 @@ const dogSchema = new Schema({
   ],
   posts: [{ postType: String, 
     details: String, 
-    date: String}],
+    date: { type: Date, default: Date.now }
+  }],
 });
 
 const Dog = mongoose.model('dog', dogSchema);
