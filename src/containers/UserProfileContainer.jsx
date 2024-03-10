@@ -27,11 +27,20 @@ const DependentContainer = () => {
   console.log("dependents", dependents)
 
   return (
-    <div>
-      <h1>This is USER Container</h1>
+    <div className='usermaincontainer'>
+            
+
+      <h2>Dependents you are tracking</h2>
+
+      <div className='alldependents'>
       {dependents}
+      </div>
+      <div className='buttoncontainer'>
       <button>Add Existing Dependent</button>
       <Link to="/addnew"><button>Add New Dependent</button></Link>
+      </div>
+
+      
     </div>
 
 ); 
