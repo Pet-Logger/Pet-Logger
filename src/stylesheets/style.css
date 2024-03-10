@@ -41,6 +41,7 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
 .profileinfocontainer {
     background: rgba(0, 145, 255, 0.69);
     padding: 5px 10px;
@@ -115,9 +116,10 @@ body {
     border: solid thin grey;
     background-color: white;
     display: flex;
+    flex-wrap: wrap;
     /* flex-direction: column; */
-    align-items: baseline;
-    /* justify-content: space-between; */
+    align-items: center;
+    justify-content: flex-start;
 
 }
 
@@ -125,7 +127,8 @@ body {
     border: solid rgba(0, 145, 255, 0.69);
     border-radius: 10px;
     background:  rgba(0, 145, 255, 0.1); 
-    /* width: 90%; */
+    width: 325px;
+    height: 150px;
     padding: 20px;
     margin: 20px;
     display: flex;

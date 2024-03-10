@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import DependentComponent from '../components/DependentComponent';
 
 
-const dogArray = [{name: "Oil Rig", breed:"German Shepard", age: 5, gender: 'female'}, {name: "Shadow", breed:"German Shepard", age: 7, gender: 'male'}]
+const dogArray = [{name: "Oil Rig", breed:"German Shepard", age: 5, gender: 'female'}, {name: "Shadow", breed:"German Shepard", age: 7, gender: 'male'}, {name: "Penelope", breed:"Grey Hound", age: 2, gender: 'female'}, {name: "Antonio", breed:"English Bulldog", age: 10, gender: 'male'}]
 
 const DependentContainer = () => {
   // fetch ('/') 
