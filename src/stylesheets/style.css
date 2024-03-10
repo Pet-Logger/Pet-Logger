@@ -14,7 +14,7 @@ body {
 
 .navheader {
     width: 100%;
-    padding: 10px 50px;
+    padding: 10px 20px;
     background: rgba(0, 145, 255, 0.69);
     display: flex;
     align-items: center;
@@ -154,3 +154,73 @@ body {
     text-decoration: none;
     list-style: none;
 }
+
+
+/*Add new form styling*/
+.addnewcomponent{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke; 
+    padding: 50px;
+ }
+
+ .formwrapper{
+    width: 420px;
+    background: rgba(0, 145, 255, 0.1);
+    border: solid rgba(0, 145, 255, 0.69);
+    border-radius: 5px;
+    padding: 20px;
+ }
+
+ .formwrapper h3{
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(0, 145, 255, 0.8);
+ }
+
+ .formwrapper input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    
+ }
+
+ .formwrapper select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+ }
+ 
+ .formwrapper label {
+    margin-top: 20px;
+  }
+
+
+.cancel{
+float: right;
+padding: 10px;
+background: none;
+color: rgba(0, 145, 255, 1);
+border: solid rgba(0, 145, 255, 1);
+border-radius: 5px;
+min-width: 100px;
+margin-right: 5px;
+}   
+
+.submitnew{
+float: right;
+padding: 10px;
+background: rgba(0, 145, 255, 1);
+color: white;
+border: solid rgba(0, 145, 255, 1);
+border-radius: 5px;
+min-width: 100px;
+margin-left: 5px;
+}
+
+

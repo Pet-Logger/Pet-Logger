@@ -52,26 +52,29 @@ const AddNewComponent = () => {
 
   return (
     <div className='addnewcomponent'>
-      <h3 className='newdependentname'><Link to="/user">This is new dependent form</Link></h3>
+      <div className='formwrapper'>
       <form>
+      <h3 className='newdependentname'>Add new dependent</h3>
         <label htmlFor="name" >Name</label>
         <input type="text" id="name" name="name" value={name} onChange={nameOnChange}></input>
         <label htmlFor="breed" >Age: </label>
         <input type="text" id="age" name="age" value={age} onChange={ageOnChange}></input>
         <label htmlFor="breed" >Breed:</label>
         <select id="breed" name="breed" value={breed} onChange={breedOnChange}>
+          <option value="blank">-</option>
           <option value="Husky">Husky</option>
           <option value="Dalmation">Dalmation</option>
         </select> 
         <label htmlFor="gender">Gender:</label>
         <select id="gender" name="gender" value={gender} onChange={genderOnChange}>
-        <option value="blank">-</option>
+          <option value="blank">-</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select> 
-        <button type='button' onClick={saveCharacter}> Submit</button>
+        <button className='submitnew' type='button' onClick={saveCharacter}> Submit</button>
+        <Link to="/user"><button className='cancel' type='button'> Cancel</button></Link>
       </form>
-      
+      </div>
 
   
     </div>
