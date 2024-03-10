@@ -1,0 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap'); 
+
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navheader {
+    width: 100%;
+    padding: 10px 50px;
+    background: rgba(0, 145, 255, 0.69);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: whitesmoke; 
+    text-decoration: none;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+.logo svg{
+    color: whitesmoke; 
+    
+}
+
+
+.navbar{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+.profileinfocontainer {
+    background: rgba(0, 145, 255, 0.69);
+    padding: 5px 10px;
+    color: whitesmoke; 
+    border-radius: 5px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileinfocontainer img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%; 
+    margin-right: 0px;
+
+}
+
+.profileinfocontainer span {
+    margin-left: 10px;
+
+}
+
+
+.navbar a {
+    font-size: 1rem;
+    color: white; 
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 20px;    
+
+}
+
+.navbar svg{
+    color: whitesmoke; 
+
+}
+
+
