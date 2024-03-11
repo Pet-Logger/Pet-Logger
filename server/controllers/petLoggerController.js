@@ -66,17 +66,15 @@ petLoggerController.addDog = async (req, res, next) => {
   }
 };
 
-// POST: middleware for adding a new dog
+// POST: middleware for adding a new user
 petLoggerController.addUser = async (req, res, next) => {
   try {
-    // declare the constants we're going to use
+
     const { userId, name, username, password } = req.body;
-
     const newUser = await model.User.create({ userId, name, username, password });
-
-    // save the user object in res.locals as newDog
-    res.locals.newDog = newDog;
+    res.locals.newUser = newUser;
     return next();
+
   } catch (err) {
     // handle errors
     return next({
