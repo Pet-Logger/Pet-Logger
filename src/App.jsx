@@ -5,6 +5,7 @@ import MainContainer from "./containers/MainContainer";
 import UserProfileContainer from "./containers/UserProfileContainer";
 import DependentContainer from "./containers/DependentContainer";
 import AddNewComponent from "./components/AddNewComponent";
+import NavComponent from "./components/NavComponent";
 
 
 
@@ -16,6 +17,7 @@ const App = () => {
       <p>Hello Guys Bongi</p> */}
       <main>
       <MainContainer/>
+      <NavComponent />
 
         <Routes>
           <Route path = 'user' element ={<UserProfileContainer/>} />
