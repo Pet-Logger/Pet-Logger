@@ -1,16 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 // import DependentContainer from './DependentContainer';
 
+// to add link to the dependent page
 
-// to add link to the dependent page 
-
-
-const DependentComponent = ({traits}) => {
-
-  const {name, age, breed, gender} = traits
-
+const DependentComponent = ({ traits }) => {
+  const { name, age, breed, gender } = traits;
 
   return (
     <div className='dependentcomponent'>

@@ -1,17 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 //import { useNavigate } from "react-router-dom";
 
+const breedArray = [
+  "Husky",
+  "Golden Retreiver",
+  "Dalmatian",
+  "German Shepard",
+  "Lab",
+  "Beagle",
+  "Poodle",
+];
 
-const breedArray = ['Husky', 'Golden Retreiver', 'Dalmatian', 'German Shepard', 'Lab', 'Beagle', 'Poodle']
-
-const useInput = init => {
-  const [ value, setValue ] = useState(init);
-  const onChange = e => {
+const useInput = (init) => {
+  const [value, setValue] = useState(init);
+  const onChange = (e) => {
     setValue(e.target.value);
   };
-  return [ value, onChange ];
+  return [value, onChange];
 };
 
 const AddNewComponent = () => {
@@ -43,25 +50,25 @@ const AddNewComponent = () => {
       breed,
       gender,
     };
-    console.log("req.body", body)
+    console.log("req.body", body);
 
-  //     fetch('/api/dog', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'Application/JSON'
-  //       },
-  //       body: JSON.stringify(body)
-  //     })
-  //       .then(resp => resp.json())
-  //       .then(data => {
-  //         console.log(data);
-  //       })
-  //       .then(() => {
+    //     fetch('/api/dog', {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'Application/JSON'
+    //       },
+    //       body: JSON.stringify(body)
+    //     })
+    //       .then(resp => resp.json())
+    //       .then(data => {
+    //         console.log(data);
+    //       })
+    //       .then(() => {
     //        useNavigate('')
-  //         //props.history.push('/');
-  //       })
-  //       .catch(err => console.log(' add dependent fetch /api/character: ERROR: ', err));
-  //   }
+    //         //props.history.push('/');
+    //       })
+    //       .catch(err => console.log(' add dependent fetch /api/character: ERROR: ', err));
+    //   }
   };
 
   return (
