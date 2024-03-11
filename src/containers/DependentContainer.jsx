@@ -30,17 +30,27 @@ const DependentContainer = (props) => {
   
  // iterate using a for loop over the data array of objects, pass in the info from each element to a dependent component.
 
-  const logActivities = log.map((elem, i)=>{
-    return (
-      <LogComponent
+  // const logActivities = log.map((elem, i)=>{
+  //   return (
+  //     <LogComponent
+  //       key ={i}
+  //       logs = {elem}
+  //     />);
+  // });  
+
+    let logActivities = []; 
+    for (let i = log.length-1; i>=0; i--){
+      logActivities.push(
+        <LogComponent
         key ={i}
-        logs = {elem}
-      />);
-  });  
+        logs = {log[i]}
+      />
+      )
+    }
+
 
   return (
-    <div>
-      <h1>This is Dependent Container</h1>
+    <div className="dependentpagecontainer">
       {/* <DependentComponent
         traits={{        }} 
       ></DependentComponent> */}
