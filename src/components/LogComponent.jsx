@@ -6,7 +6,7 @@ const LogComponent = ({ logs }) => {
   return (
     <div className="logcomponent">
       <img className="notesIcon" src="https://www.computerhope.com/jargon/n/notes.png"></img>
-      <h3 className="logname">Oil Rig Placeholder</h3>
+      {/* <h3 className="logname">Oil Rig Placeholder</h3> */}
       <ul className="logdetails">
         <li className="traitslist">Activity: {postType}</li>
         <li className="traitslist">Time: {date}</li>
