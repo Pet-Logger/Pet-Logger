@@ -1,16 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 //import { useNavigate } from "react-router-dom";
 
 const breedArray = [
-  "Husky",
-  "Golden Retreiver",
-  "Dalmatian",
-  "German Shepard",
-  "Lab",
-  "Beagle",
-  "Poodle",
+  'Husky',
+  'Golden Retreiver',
+  'Dalmatian',
+  'German Shepard',
+  'Lab',
+  'Beagle',
+  'Poodle',
 ];
 
 const useInput = (init) => {
@@ -47,7 +47,7 @@ const AddNewComponent = () => {
       breed,
       gender,
     };
-    console.log("req.body", body);
+    console.log('req.body', body);
 
     fetch("/api/dog", {
       method: "POST",
@@ -62,6 +62,7 @@ const AddNewComponent = () => {
         console.log(" add dependent fetch /api/character: ERROR: ", err)
       );
   };
+
 
   return (
     <div className="addnewcomponent">
