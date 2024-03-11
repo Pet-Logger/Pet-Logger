@@ -72,6 +72,7 @@ petLoggerController.addDog = async (req, res, next) => {
     const newDog = await model.Dog.create({ name, breed, age, gender });
     // save the dog object in res.locals as newDog
     res.locals.newDog = newDog;
+    console.log("newDog", res.locals.newDog)
     return next();
   } catch (err) {
     // handle errors
