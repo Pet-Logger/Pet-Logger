@@ -12,7 +12,7 @@ const DependentComponent = ({ traits }) => {
     <div className='dependentcomponent'>
       <div className='dependentimgcontainer'><img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg"></img></div>
       <div className='dependentinfocontainer'>
-      <h3 className='dependentname' style={{textDecoration: 'none'}}><Link to="/dependent">{name}</Link></h3>
+      <h3 className='dependentname'><Link to={'/dependent/' + name}>{name}</Link></h3>
       <ul className='dependenttraits'>
         <li className='traitslist'>Age: {age}</li>
         <li className='traitslist'>Breed: {breed}</li>
