@@ -25,9 +25,17 @@ const petLoggerController = {};
 petLoggerController.getDog = async (req, res, next) => {
 	try {
 		// fetch dog's info from database
-		const dogInfo;
+		const dogs = await model.Dog.find();
+
+		const dogsWithInfo = dogs.map(dog => {
+			name: dog.Name,
+			image: dog.image,
+			id: dog.DogID
+		});
+
 		// send the response
-		res.status(200).json(dogInfo);
+		res.status(200).json(dogsWithInfo);
+
 	} catch (err) {
 		// handle errors
 		return next({
@@ -57,6 +65,28 @@ petLoggerController.addDog = async (req, res, next) => {
     });
   }
 };
+
+// POST: middleware for adding a new dog
+petLoggerController.addUser = async (req, res, next) => {
+  try {
+    // declare the constants we're going to use
+    const { userId, name, username, password } = req.body;
+
+    const newUser = await model.User.create({ userId, name, username, password });
+
+    // save the user object in res.locals as newDog
+    res.locals.newDog = newDog;
+    return next();
+  } catch (err) {
+    // handle errors
+    return next({
+      log: `Error in addDog middleware ${err}`,
+      status: 500,
+      message: `Error in addDog middleware`,
+    });
+  }
+};
+
 
 
 module.exports = petLoggerController;
