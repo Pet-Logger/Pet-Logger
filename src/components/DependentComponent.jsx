@@ -14,8 +14,8 @@ const DependentComponent = ({traits}) => {
 
   return (
     <div className='dependentcomponent'>
-      <img src="/"></img>
-      <h3 className='dependentname'><Link to="/dependent">{name}</Link></h3>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg/220px-German_Shepherd_-_DSC_0346_%2810096362833%29.jpg"></img>
+      <h3 className='dependentname'><Link to={'/dependent/'+ name}>{name}</Link></h3>
       <ul className='dependenttraits'>
         <li className='traitslist'>Age: {age}</li>
         <li className='traitslist'>Breed: {breed}</li>
