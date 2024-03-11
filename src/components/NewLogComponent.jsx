@@ -26,7 +26,7 @@ const NewLogComponent = (props) => {
       note, 
     };
     console.log("req.body", logbody);
-
+    //NEEDS TO BE UPDATED !!!
     //     fetch('/api/dog', {
     //       method: 'POST',
     //       headers: {
