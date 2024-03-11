@@ -5,14 +5,16 @@ import { Link } from 'react-router-dom';
 
 // to add link to the dependent page
 
-const DependentComponent = ({ traits }) => {
-  const { name, age, breed, gender } = traits;
+const DependentComponent = ({traits}) => {
+  
+  const {_id, name, age, breed, gender } = traits;
+  
 
   return (
     <div className='dependentcomponent'>
       <div className='dependentimgcontainer'><img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg"></img></div>
       <div className='dependentinfocontainer'>
-        <h3 className='dependentname'><Link to={'/dependent/' + name}>{name}</Link></h3>
+        <h3 className='dependentname'><Link to={'/dependent/' + _id}>{name}</Link></h3>
         <ul className='dependenttraits'>
           <li className='traitslist'>Age: {age}</li>
           <li className='traitslist'>Breed: {breed}</li>

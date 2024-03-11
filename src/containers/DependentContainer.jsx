@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import NewLogComponent from "../components/NewLogComponent";
 import LogComponent from "../components/LogComponent";
@@ -10,27 +10,26 @@ const logArray = [{activity:'nap', time:'12:50pm', note: 'Did not want to take a
 
 const DependentContainer = (props) => {
   const { id } = useParams();
+  console.log(id);
 
-  // fetch ('/')
-  // .then(resp => resp.json())
-  // .then (data => console.log(data))  // data is going to be an array of objects
-  // .catch((err)=> console.log("get dependents request error", err));
+  // Method: GET
+  // Endpoint: localhost:3000/api/post?dogId=48374837483743 (query dogId)
+  // Controller mtehod: getPost
+  // Response: array of post objects [{postType, details, date}]
 
-  // iterate using a for loop over the data array of objects, pass in the infor from each element to a dependent component.
-  // const dependents = dogArray.map((elem, i)=>{
-  //   return (
-  //     <DependentComponent
-  //       key ={i}
-  //       traits = {elem}
-  //     />);
-  // });
+  const [log, setLog] = useState([]); 
 
-  // console.log("dogarray", dogArray)
-  // console.log("dependents", dependents)
+  useEffect (() => {
+    fetch (`/api/post?dogId=${id}`)
+    .then(resp => resp.json())
+    .then (data => setLog(data)) 
+    .catch((err)=> console.log("get logs request error", err));
+  }, []); 
+   
 
-  console.log(id)
+ // iterate using a for loop over the data array of objects, pass in the info from each element to a dependent component.
 
-  const logActivities = logArray.map((elem, i)=>{
+  const logActivities = log.map((elem, i)=>{
     return (
       <LogComponent
         key ={i}
@@ -41,18 +40,11 @@ const DependentContainer = (props) => {
   return (
     <div>
       <h1>This is Dependent Container</h1>
-      <DependentComponent
-        traits={{
-          name: "Oil Rig",
-          breed: "German Shepard",
-          age: 5,
-          gender: "female",
-        }} //Need to fetch actual traits
-      ></DependentComponent>
+      {/* <DependentComponent
+        traits={{        }} 
+      ></DependentComponent> */}
       <NewLogComponent id = {id}></NewLogComponent>
       {logActivities}
-    
-      
     </div>
   );
 };

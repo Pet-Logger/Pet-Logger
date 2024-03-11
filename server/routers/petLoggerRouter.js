@@ -37,8 +37,8 @@ router.get('/dog/:user', petLoggerController.getDogs, (req, res) => {
 // Controller mtehod: getPost
 // Response: array of post objects [{postType, details, date}]
 router.get('/post', petLoggerController.getPost, (req, res) => {
-   res.status(200).json(res.locals.posts);
-})
+  res.status(200).json(res.locals.posts);
+});
 
 //add new activity
 //Method: POST
