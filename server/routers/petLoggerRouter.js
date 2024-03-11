@@ -21,7 +21,9 @@ router.post('/dog', petLoggerController.addDog, (req, res) => {
 });
 
 // POST to USER => create a new user
-// router.post('/user')
+// router.post('/user', petLoggerController.addUser, (req, res) => {
+// 	res.status(200).json(res.locals.addUser)
+// })
 
 // export this file
 module.exports = router;

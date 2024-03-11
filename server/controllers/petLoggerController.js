@@ -22,30 +22,41 @@ const model = require('../models/petLoggerModels');
 const petLoggerController = {};
 
 // GET: middleware for retreiving a dog data
-petLoggerController.getDog = (req, res, next) => {};
+petLoggerController.getDog = async (req, res, next) => {
+	try {
+		// fetch dog's info from database
+		const dogInfo;
+		// send the response
+		res.status(200).json(dogInfo);
+	} catch (err) {
+		// handle errors
+		return next({
+      log: `Error in getDog middleware ${err}`,
+      status: 500,
+      message: `Error in getDog middleware`,
+    });
+	}
+};
 
 // POST: middleware for adding a new dog
 petLoggerController.addDog = async (req, res, next) => {
   try {
     // declare the constants we're going to use
     const { name, breed, age, gender } = req.body;
-
     // async connect to the mongo DB, and create a new dog
     const newDog = await model.Dog.create({ name, breed, age, gender });
-
     // save the dog object in res.locals as newDog
     res.locals.newDog = newDog;
-
     return next();
   } catch (err) {
+    // handle errors
     return next({
-      log: `Error in getDog middleware ${err}`,
+      log: `Error in addDog middleware ${err}`,
       status: 500,
-      message: `Error in getDog middleware`,
+      message: `Error in addDog middleware`,
     });
   }
-
-  // handle errors
 };
+
 
 module.exports = petLoggerController;
