@@ -16,7 +16,7 @@ mongoose
 
 //user Schema
 const userSchema = new Schema({
-  name: { type: String, required: true, unique:true },
+  name: { type: String, required: true, unique: true },
   userName: { type: String, required: true },
   password: { type: String, required: true },
 });
@@ -41,11 +41,17 @@ const dogSchema = new Schema({
   //     }
   //   },
   // ],
-  users: { type: [ Schema.Types.ObjectId ], default: ['65ecbe30d6da6de8222431e2']},
-  posts: [{ postType: String, 
-    details: String, 
-    date: { type: Date, default: Date.now }
-  }],
+  users: {
+    type: [Schema.Types.ObjectId],
+    default: ['65ecbe30d6da6de8222431e2'],
+  },
+  posts: [
+    {
+      postType: String,
+      details: String,
+      date: { type: Date, default: Date.now },
+    },
+  ],
 });
 
 const Dog = mongoose.model('dog', dogSchema);

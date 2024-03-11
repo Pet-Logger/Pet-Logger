@@ -22,29 +22,46 @@ const model = require('../models/petLoggerModels');
 const petLoggerController = {};
 
 // GET: middleware for retreiving a dog data
-petLoggerController.getDog = async (req, res, next) => {
-	try {
-		// fetch dog's info from database
-		const dogs = await model.Dog.find();
-
-		const dogsWithInfo = dogs.map(dog => {
-			name: dog.Name,
-			image: dog.image,
-			id: dog.DogID
-		});
-
-		// send the response
-		res.status(200).json(dogsWithInfo);
-
-	} catch (err) {
-		// handle errors
-		return next({
+petLoggerController.getDogs = async (req, res, next) => {
+  try {
+    //retrieve the userId from req.params
+    console.log('req params', req.params);
+    const userId = req.params.user;
+    //get all the dogs from the database
+    const dogs = await model.Dog.find({});
+    console.log({ dogs });
+    // for each dog returned, check if the usersarray contained the userId
+    const matchingDogs = dogs.filter((dog) => dog.users.includes(userId));
+    res.locals.matchingDogs = matchingDogs;
+    return next();
+  } catch (err) {
+    // handle errors
+    return next({
       log: `Error in getDog middleware ${err}`,
       status: 500,
       message: `Error in getDog middleware`,
     });
-	}
+  }
 };
+
+// petLoggerController.getDogs2 = async (req, res, next) => {
+//   try {
+//     //retrieve the userId from req.params
+//     const userId = req.params.user;
+//     //get all the dogs from the database
+//     const dogs = await model.Dog.find({ $in: ['$userId', '$users'] });
+//     // for each dog returned, check if the usersarray contained the userId
+//     res.locals.matchingDogs = dogs;
+//     return next();
+//   } catch (err) {
+//     // handle errors
+//     return next({
+//       log: `Error in getDog middleware ${err}`,
+//       status: 500,
+//       message: `Error in getDog middleware`,
+//     });
+//   }
+// };
 
 // POST: middleware for adding a new dog
 petLoggerController.addDog = async (req, res, next) => {
@@ -69,22 +86,62 @@ petLoggerController.addDog = async (req, res, next) => {
 // POST: middleware for adding a new user
 petLoggerController.addUser = async (req, res, next) => {
   try {
-
-    const { userId, name, username, password } = req.body;
-    const newUser = await model.User.create({ userId, name, username, password });
+    const { name, username, password } = req.body;
+    const newUser = await model.User.create({ name, username, password });
     res.locals.newUser = newUser;
     return next();
-
   } catch (err) {
     // handle errors
     return next({
-      log: `Error in addDog middleware ${err}`,
+      log: `Error in addUser middleware ${err}`,
       status: 500,
-      message: `Error in addDog middleware`,
+      message: `Error in addUser middleware`,
     });
   }
 };
 
+// POST: for adding a new post for a dependent(dog)
+petLoggerController.addPost = async (req, res, next) => {
+  try {
+    const { dogId, postType, details } = req.body;
 
+    // update the dog object to have a new post in its post array
+    // update we'll make is pushing a new post into the posts array on the dog
+    // we'll return just the new post
+
+    const filter = { _id: dogId };
+    const update = { $push: { posts: { postType, details } } };
+
+    const dog = await model.Dog.findOneAndUpdate(filter, update, { new: true });
+    // console.log(dog.posts);
+    res.locals.dog = dog.posts[dog.posts.length - 1];
+    return next();
+  } catch (err) {
+    // handle errors
+    return next({
+      log: `Error in addPost middleware ${err}`,
+      status: 500,
+      message: `Error in addPost middleware ${err}`,
+    });
+  }
+};
+
+// GET: for getting all dogs posts when given dog Id in req.query
+petLoggerController.getPost = async (req, res, next) => {
+  try {
+    const { dogId } = req.query;
+    const foundDog = await model.Dog.find({ _id: dogId });
+    console.log(foundDog[0].posts);
+    res.locals.posts = foundDog[0].posts;
+
+    return next();
+  } catch (error) {
+    return next({
+      log: `Error in getPost middleware ${err}`,
+      status: 500,
+      message: `Error in getPost middleware ${err}`,
+    });
+  }
+};
 
 module.exports = petLoggerController;
