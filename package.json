@@ -4,7 +4,7 @@
   "description": "Javascript-project",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node server/server.js",
+    "start": "node server/server.js",
     "build": "webpack --mode production",
     "dev": "nodemon server/server.js & NODE_ENV=development webpack serve --open --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
