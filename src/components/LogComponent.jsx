@@ -2,17 +2,17 @@ import React from 'react';
 
 
 
-const LogComponent = () => {
-
+const LogComponent = ({logs}) => {
+  const {activity, time, note} = logs;
 
   return (
     <div className='logcomponent'>
     <img src="/"></img>
     <h3 className='logname'>Oil Rig Placeholder</h3>
     <ul className='logdetails'>
-        <li className='traitslist'>Title:</li>
-        <li className='traitslist'>Time:</li>
-        <li className='traitslist'>Note:</li>
+        <li className='traitslist'>Activity: {activity}</li>
+        <li className='traitslist'>Time: {time}</li>
+        <li className='traitslist'>Note: {note}</li>
     </ul>
 
 </div>
