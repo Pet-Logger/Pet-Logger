@@ -51,8 +51,6 @@ const dogSchema = new Schema({
 
 const Dog = mongoose.model('dog', dogSchema);
 
-
-
 module.exports = {
   User,
   Dog,
