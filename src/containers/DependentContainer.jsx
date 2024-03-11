@@ -6,10 +6,11 @@ import LogComponent from "../components/LogComponent";
 import DependentComponent from "../components/DependentComponent";
 import { useParams } from "react-router-dom";
 
-// const dogArray = [{name: "Oil Rig", breed:"German Shepard", age: 5, gender: 'female'}, {name: "Shadow", breed:"German Shepard", age: 7, gender: 'male'}]
+const logArray = [{activity:'nap', time:'12:50pm', note: 'Did not want to take a nap.'}, {activity:'medicine', time:'1:50pm', note: 'Gave red pills' }]; 
 
 const DependentContainer = (props) => {
   const { id } = useParams();
+
   // fetch ('/')
   // .then(resp => resp.json())
   // .then (data => console.log(data))  // data is going to be an array of objects
@@ -29,6 +30,14 @@ const DependentContainer = (props) => {
 
   console.log(id)
 
+  const logActivities = logArray.map((elem, i)=>{
+    return (
+      <LogComponent
+        key ={i}
+        logs = {elem}
+      />);
+  });  
+
   return (
     <div>
       <h1>This is Dependent Container</h1>
@@ -40,8 +49,10 @@ const DependentContainer = (props) => {
           gender: "female",
         }} //Need to fetch actual traits
       ></DependentComponent>
-      <NewLogComponent></NewLogComponent>
-      <LogComponent></LogComponent>
+      <NewLogComponent id = {id}></NewLogComponent>
+      {logActivities}
+    
+      
     </div>
   );
 };

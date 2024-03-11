@@ -32,8 +32,7 @@ const AddNewComponent = () => {
   const genderList = [
     {label: 'male', value: 'male'},
     {label: 'female', value: 'female'}
-  ]
-
+  ];
 
 
   const [ name, nameOnChange ] = useInput('');
