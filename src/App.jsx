@@ -19,7 +19,7 @@ const App = () => {
 
         <Routes>
           <Route path = 'user' element ={<UserProfileContainer/>} />
-          <Route path = 'dependent' element={<DependentContainer/>}/>
+          <Route path = 'dependent/:id' element={<DependentContainer/>}/>
           <Route path = 'addnew' element={<AddNewComponent/>}/>
         </Routes>
 
