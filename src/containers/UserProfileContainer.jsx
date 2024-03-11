@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import DependentComponent from '../components/DependentComponent';
 
 
-const dogArray = [{name: "Oil Rig", breed:"German Shepard", age: 5, gender: 'female'}, {name: "Shadow", breed:"German Shepard", age: 7, gender: 'male'}]
+const dogArray = [{name: "Oil Rig", breed:"German Shepard", age: 5, gender: 'female'}, {name: "Shadow", breed:"German Shepard", age: 7, gender: 'male'}, {name: "Penelope", breed:"Grey Hound", age: 2, gender: 'female'}, {name: "Antonio", breed:"English Bulldog", age: 10, gender: 'male'}]
 
 const DependentContainer = () => {
   // fetch ('/') 
@@ -27,11 +27,20 @@ const DependentContainer = () => {
   console.log("dependents", dependents)
 
   return (
-    <div>
-      <h1>This is USER Container</h1>
+    <div className='usermaincontainer'>
+            
+
+      <h2>Dependents you are tracking</h2>
+
+      <div className='alldependents'>
       {dependents}
+      </div>
+      <div className='buttoncontainer'>
       <button>Add Existing Dependent</button>
       <Link to="/addnew"><button>Add New Dependent</button></Link>
+      </div>
+
+      
     </div>
 
 ); 

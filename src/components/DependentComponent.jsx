@@ -9,16 +9,16 @@ const DependentComponent = ({ traits }) => {
   const { name, age, breed, gender } = traits;
 
   return (
-    <div className="dependentcomponent">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg/220px-German_Shepherd_-_DSC_0346_%2810096362833%29.jpg"></img>
-      <h3 className="dependentname">
-        <Link to={ '/dependent/'+ name}>{name}</Link>
-      </h3>
-      <ul className="dependenttraits">
-        <li className="traitslist">Age: {age}</li>
-        <li className="traitslist">Breed: {breed}</li>
-        <li className="traitslist">Gender: {gender}</li>
+    <div className='dependentcomponent'>
+      <div className='dependentimgcontainer'><img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg"></img></div>
+      <div className='dependentinfocontainer'>
+      <h3 className='dependentname' style={{textDecoration: 'none'}}><Link to="/dependent">{name}</Link></h3>
+      <ul className='dependenttraits'>
+        <li className='traitslist'>Age: {age}</li>
+        <li className='traitslist'>Breed: {breed}</li>
+        <li className='traitslist'>Gender: {gender}</li>
       </ul>
+      </div>
     </div>
   );
 };
