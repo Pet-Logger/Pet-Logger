@@ -44,6 +44,28 @@ petLoggerController.getDogs = async (req, res, next) => {
   }
 };
 
+petLoggerController.getLogHeader = async (req, res, next) => {
+  try {
+    //retrieve the userId from req.params
+    console.log('req params', req.params);
+    const dogId = req.params.id;
+    //get all the dogs from the database
+    const dog = await model.Dog.find({});
+    console.log({ dog });
+    // for each dog returned, check if the usersarray contained the userId
+    const matchingDog = dog.filter((dog) => dog._id.includes(dogId));
+    res.locals.matchingDog = matchingDog;
+    return next();
+  } catch (err) {
+    // handle errors
+    return next({
+      log: `Error in getDog middleware ${err}`,
+      status: 500,
+      message: `Error in getDogForLogHeader middleware`,
+    });
+  }
+};
+
 // petLoggerController.getDogs2 = async (req, res, next) => {
 //   try {
 //     //retrieve the userId from req.params

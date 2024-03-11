@@ -17,6 +17,7 @@ const DependentContainer = (props) => {
   // Controller mtehod: getPost
   // Response: array of post objects [{postType, details, date}]
 
+  const [result, setResult] = useState([]); 
   const [log, setLog] = useState([]); 
   // const [reset, setreset] = useState(false)
 
@@ -27,6 +28,21 @@ const DependentContainer = (props) => {
     .catch((err)=> console.log("get logs request error", err));
   }, []); 
    
+
+  useEffect (() => {
+    fetch (`/dog/logheader/${id}`) 
+  .then(resp => resp.json())
+  .then((data)=>  setResult(data)) // data is going to be an array of objects 
+  .catch((err)=> console.log("get dependents request error", err));
+  }, []); 
+
+  const dependents = result.map((elem, i)=>{
+    return (
+      <DependentComponent
+        key ={i}
+        traits = {elem}
+      />);
+  });  
   
  // iterate using a for loop over the data array of objects, pass in the info from each element to a dependent component.
 
@@ -41,9 +57,7 @@ const DependentContainer = (props) => {
   return (
     <div>
       <h1>This is Dependent Container</h1>
-      {/* <DependentComponent
-        traits={{        }} 
-      ></DependentComponent> */}
+      {dependents}
       <NewLogComponent 
         // resetPage = {setreset}
       id = {id}></NewLogComponent>

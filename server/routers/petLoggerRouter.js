@@ -31,6 +31,10 @@ router.get('/dog/:user', petLoggerController.getDogs, (req, res) => {
   res.status(200).json(res.locals.matchingDogs);
 });
 
+router.get('/dog/logheader/:id', petLoggerController.getLogHeader, (req, res) => {
+  res.status(200).json(res.locals.matchingDog);
+});
+
 // Get a dog's posts
 // Method: GET
 // Endpoint: localhost:3000/api/post (query: dogId)
