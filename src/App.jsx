@@ -1,12 +1,10 @@
-import React from "react";
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import MainContainer from "./containers/MainContainer";
-import UserProfileContainer from "./containers/UserProfileContainer";
-import DependentContainer from "./containers/DependentContainer";
-import AddNewComponent from "./components/AddNewComponent";
-
-
+import MainContainer from './containers/MainContainer';
+import UserProfileContainer from './containers/UserProfileContainer';
+import DependentContainer from './containers/DependentContainer';
+import AddNewComponent from './components/AddNewComponent';
 
 const App = () => {
   return (
@@ -15,20 +13,18 @@ const App = () => {
       <p>This is Reem</p>
       <p>Hello Guys Bongi</p> */}
       <main>
-      <MainContainer/>
+        <MainContainer />
 
         <Routes>
-          <Route path = 'user' element ={<UserProfileContainer/>} />
-          <Route path = 'dependent/:id' element={<DependentContainer/>}/>
-          <Route path = 'addnew' element={<AddNewComponent/>}/>
+          <Route path="/" element={<UserProfileContainer />} />
+          <Route path="user" element={<UserProfileContainer />} />
+          <Route path="dependent/:id" element={<DependentContainer />} />
+          <Route path="addnew" element={<AddNewComponent />} />
         </Routes>
 
-
-
-      {/* </MainContainer> */}
+        {/* </MainContainer> */}
       </main>
     </div>
-    
   );
 };
 
