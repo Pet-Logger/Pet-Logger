@@ -307,7 +307,7 @@ margin-left: 5px;
 
 .loginfo {
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-around;
     align-items: center;
     width: 90%;
 
@@ -317,7 +317,7 @@ margin-left: 5px;
 .activity {
     border: solid thin whitesmoke;
     border-radius: 10px;
-    margin: 10px;
+    margin: 5px;
     padding: 10px;
     width: 100px;
     text-align: center;
@@ -329,18 +329,19 @@ margin-left: 5px;
 .details {
     border: solid thin whitesmoke;
     border-radius: 10px;
-    margin: 10px;
+    margin: 5px;
     padding: 10px;
     width: 400px;
  
 }
 
 .time {
-    width: 100px;
-    text-align: right;
+    width: 225px;
+    text-align: center;
     border: solid thin whitesmoke;
     border-radius: 10px;
-    padding: 10px 2px ;
+    padding: 10px 5px ;
     background: rgba(0, 145, 255, 0.69);
+    margin: 5px;
 
 }

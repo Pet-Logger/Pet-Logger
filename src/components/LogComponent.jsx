@@ -3,9 +3,11 @@ import React from "react";
 const LogComponent = ({ logs }) => {
   const { postType, details, date } = logs;
 
-  let formatDate = date.substring(0,10); 
+  let formatDate = date.substring(0,10)
   formatDate = formatDate.split('-'); 
-  formatDate = formatDate.reverse().join('-')
+  formatDate = formatDate.reverse().join('/')
+
+  let formatTime = date.substring(11, 16)
 
   return (
     <div className="logcomponent">
@@ -14,7 +16,7 @@ const LogComponent = ({ logs }) => {
       <div className="loginfo">
         <span className="activity">{postType}</span>
         <span className="details">{details}</span>
-        <span className="time">{formatDate}</span>
+        <span className="time">{`${formatDate} at ${formatTime}`}</span>
       </div>
     </div>
   );
