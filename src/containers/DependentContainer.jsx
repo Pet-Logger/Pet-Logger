@@ -39,8 +39,7 @@ const DependentContainer = (props) => {
   });  
 
   return (
-    <div>
-      <h1>This is Dependent Container</h1>
+    <div className="dependentpagecontainer">
       {/* <DependentComponent
         traits={{        }} 
       ></DependentComponent> */}

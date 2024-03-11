@@ -226,8 +226,121 @@ min-width: 100px;
 margin-left: 5px;
 }
 
+/*activity log page*/
+
+.dependentpagecontainer{
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+
+}
+
+.newlogcontainer { 
+    margin-top: 20px;
+    border: solid rgba(0, 145, 255, 0.69);
+    border-radius: 10px;
+    background:  rgba(0, 145, 255, 0.1); 
+    width: 700px; 
+    height: 150px;
+    padding: 20px;
+    margin: 20px;
+
+}
+
+.newlogcontainer h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+    color: rgba(0, 145, 255, 0.8);
+}
+
+.logforminputs select{
+    margin-right: 20px;
+    padding: 4px; 
+    border-radius: 5px;
+    width: 20%;
+    border: solid thin rgba(0, 145, 255, 0.8);
+}
+
+.logforminputs input{
+    /* margin-right: 20px; */
+    width: 75%;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid thin rgba(0, 145, 255, 0.8);
+}
+
+.newlogcontainer button {
+    float: right;
+    padding: 5px;
+    background: rgba(0, 145, 255, 1);
+    color: white;
+    border: solid rgba(0, 145, 255, 1);
+    border-radius: 5px;
+    min-width: 100px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+/* individual activity logs style*/
+
+.logcomponent {
+    margin-top: 20px;
+    border: solid rgba(0, 145, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(0, 145, 255, 0.69);
+    color: whitesmoke;
+    width: 700px; 
+    height: 100px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
 
 .notesIcon {
     max-width: 50px;
     max-height: 50px;
+}
+
+.loginfo {
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    width: 90%;
+
+
+} 
+
+.activity {
+    border: solid thin whitesmoke;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    background: rgba(0, 145, 255, 0.69);
+
+   
+} 
+
+.details {
+    border: solid thin whitesmoke;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 400px;
+ 
+}
+
+.time {
+    width: 100px;
+    text-align: right;
+    border: solid thin whitesmoke;
+    border-radius: 10px;
+    padding: 10px 2px ;
+    background: rgba(0, 145, 255, 0.69);
+
 }

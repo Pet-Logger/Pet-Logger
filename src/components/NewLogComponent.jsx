@@ -37,25 +37,18 @@ const NewLogComponent = (props) => {
   };
 
   return (
-    <div>
-      <h4>This is new log component</h4>
-      <form></form>
+    <div className="newlogcontainer">
+      <h4>Log new activity</h4>
+      <form className="newlogform"></form>
       <form>
-        {/* <input value={`${props.id}`} type="hidden" onChange={idOnChange}></input> */}
-        <input
-          name="details"
-          value={details}
-          onChange={detailsOnChange}
-        ></input>
-
-        <label htmlFor="activity">Select Activity:</label>
-        <select
-          id="activity"
+        <div className="logforminputs">
+      <select
+          id="postType"
           name="postType"
           value={postType}
           onChange={postTypeOnChange}
         >
-          <option value="blank">-</option>
+          <option value="blank">Select Activity</option>
           <option value="Food">Food</option>
           <option value="Medicine">Medicine</option>
           <option value="Potty">Potty</option>
@@ -63,12 +56,19 @@ const NewLogComponent = (props) => {
           <option value="Exercise">Exercise</option>
           <option value="Treats">Treats</option>
         </select>
-
-        {/* <Link to={`/dependent/${props.id}`}> */}
+        <input
+          name="details"
+          placeholder="Add Activity Details"
+          value={details}
+          onChange={detailsOnChange}
+        ></input>
+        </div>
+        
+        
         <button type="button" onClick={() => saveLog(props.id)}>
           Submit
         </button>
-        {/* </Link> */}
+  
       </form>
     </div>
   );
