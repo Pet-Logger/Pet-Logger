@@ -8,7 +8,7 @@ const PORT = 3000;
 if (process.env.NODE_ENV === 'development') {
   app.use(express.static(path.resolve(__dirname, '../src')));
 } else {
-  app.use(express.static(path.resolve(__dirname, '../dist')));
+  app.use(express.static(path.resolve(__dirname, "../dist")));
 }
 
 // parsing requests to json

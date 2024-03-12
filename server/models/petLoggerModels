@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 const { Schema } = mongoose;
 
-const uri =
-  'mongodb+srv://bongisiba:9amflRSy13ObViXE@petloggercluster.afs6n5g.mongodb.net/?retryWrites=true&w=majority&appName=PetLoggerCluster';
-
+const uri = '';
+  
 mongoose
   .connect(uri, {
     // options for the connect method to parse the URI
