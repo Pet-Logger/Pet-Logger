@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const petLoggerRouter = require('./routers/petLoggerRouter');
+const authRouter = require('./routers/authRouter.js');
 
 const app = express();
 const PORT = 3000;
@@ -9,6 +10,7 @@ const PORT = 3000;
 app.use(express.json());
 // define the route handlers
 app.use('/api', petLoggerRouter);
+app.use('/auth', authRouter);
 
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
