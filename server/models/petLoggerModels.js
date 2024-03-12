@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 const { Schema } = mongoose;
 
+const SALT_WORK_FACTOR = 10;
+const bcrypt = require('bcryptjs');
+
 const uri =
   'mongodb+srv://brendafela:gur1pzDgsfkn5YcO@petloggercluster.afs6n5g.mongodb.net/?retryWrites=true&w=majority&appName=PetLoggerCluster';
 
@@ -19,6 +22,19 @@ const userSchema = new Schema({
   name: { type: String, required: true, unique: true },
   userName: { type: String, required: true },
   password: { type: String, required: true },
+});
+
+userSchema.pre('save', async function (next) {
+  try {
+    const user = this;
+
+    if (!user.isModified('password')) return next();
+
+    user.password = await bcrypt.hash(user.password, SALT_WORK_FACTOR);
+    return next();
+  } catch (error) {
+    return next(error);
+  }
 });
 
 const User = mongoose.model('user', userSchema);
