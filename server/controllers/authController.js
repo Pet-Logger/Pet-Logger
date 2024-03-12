@@ -1,9 +1,10 @@
 const { User } = require('../models/petLoggerModels.js');
+const bcrypt = require('bcryptjs');
 const authController = {};
 
 authController.addNewUser = (req, res, next) => {
   const { name, userName, password } = req.body;
-  // console.log('This is the req.body ✨', req.body);
+
   if (!name || !userName || !password) {
     return next({
       log: 'authController.addNewUser did not receive all three required arguments (name, userName & password)',
@@ -27,6 +28,43 @@ authController.addNewUser = (req, res, next) => {
     });
 };
 
-authController.compareUser = (req, res, next) => {};
+authController.compareUser = (req, res, next) => {
+  const { userName, password } = req.body;
+  if (!userName || !password) {
+    return next({
+      log: 'authController.compareUser did not receive both required arguments (userName & password)',
+      message: 'userName and password are both required - try again',
+      status: 401,
+    });
+  }
+  User.findOne({ userName })
+    .then((data) => {
+      bcrypt
+        .compare(password, data.password)
+        .then((matchBoolean) => {
+          if (matchBoolean) {
+            return next();
+          } else {
+            res.status(401).send('user not authorized');
+          }
+        })
+        .catch((error) => {
+          return next({
+            log:
+              'error in authController.compareUser: bcrypt compare error' +
+              error,
+            message: 'server error when validating existing user',
+            status: 500,
+          });
+        });
+    })
+    .catch((error) => {
+      return next({
+        log: 'error in authController.addNewUser: ' + error,
+        message: 'server error when adding new user',
+        status: 500,
+      });
+    });
+};
 
 module.exports = authController;
