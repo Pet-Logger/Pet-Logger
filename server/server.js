@@ -5,18 +5,14 @@ const petLoggerRouter = require('./routers/petLoggerRouter');
 const app = express();
 const PORT = 3000;
 
-if (process.env.NODE_ENV === 'development') {
-  app.use(express.static(path.resolve(__dirname, '../src')));
-} else {
-  app.use(express.static(path.resolve(__dirname, '../dist')));
-}
-
 // parsing requests to json
 app.use(express.json());
 // define the route handlers
 app.use('/api', petLoggerRouter);
 
-// Unkown route handler here
+app.use(express.static(path.resolve(__dirname, '../dist')));
+
+// Unknown route handler here
 app.use('*', (req, res) => {
   console.log('This is 404');
   res.sendStatus(404);
