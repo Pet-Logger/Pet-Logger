@@ -18,11 +18,11 @@ const App = () => {
         <NavComponent />
 
 
-        {/* <Routes>
+        <Routes>
           <Route path='/' element={<UserProfileContainer />} />
           <Route path='dependent/:id' element={<DependentContainer />} />
           <Route path='addnew' element={<AddNewComponent />} />
-        </Routes> */}
+        </Routes>
 
 
         {/* </MainContainer> */}
