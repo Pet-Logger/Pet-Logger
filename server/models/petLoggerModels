@@ -1,0 +1,62 @@
+const mongoose = require('mongoose');
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+const { Schema } = mongoose;
+
+const uri = '';
+  
+
+mongoose
+  .connect(uri, {
+    // options for the connect method to parse the URI
+    // sets the name of the DB that our collections are part of
+    dbName: 'petLogger',
+  })
+  .then(() => console.log('Connected to Mongo DB.'))
+  .catch((err) => console.log(err));
+
+//user Schema
+const userSchema = new Schema({
+  name: { type: String, required: true, unique: true },
+  userName: { type: String, required: true },
+  password: { type: String, required: true },
+});
+
+const User = mongoose.model('user', userSchema);
+
+//dogSchema
+const dogSchema = new Schema({
+  name: { type: String, required: true },
+  age: { type: Number },
+  breed: { type: String },
+  gender: { type: String },
+  // users: [
+  //   {
+  //     userId: {
+  //       type: Schema.Types.ObjectId,
+  //       ref: 'user',
+  //     },
+  //     userId: {
+  //       type: Schema.Types.ObjectId,
+  //       default: '65ecbe30d6da6de8222431e2'
+  //     }
+  //   },
+  // ],
+  users: {
+    type: [Schema.Types.ObjectId],
+    default: ['65ecbe30d6da6de8222431e2'],
+  },
+  posts: [
+    {
+      postType: String,
+      details: String,
+      date: { type: Date, default: Date.now },
+    },
+  ],
+});
+
+const Dog = mongoose.model('dog', dogSchema);
+
+module.exports = {
+  User,
+  Dog,
+};
