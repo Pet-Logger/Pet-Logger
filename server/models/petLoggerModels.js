@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const uri =
-  'mongodb+srv://bongisiba:9amflRSy13ObViXE@petloggercluster.afs6n5g.mongodb.net/?retryWrites=true&w=majority&appName=PetLoggerCluster';
+  'mongodb+srv://username:kLTuqsrf7DJGDLkM@cluster0.hh5fdrv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose
   .connect(uri, {
