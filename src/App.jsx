@@ -6,6 +6,7 @@ import UserProfileContainer from './containers/UserProfileContainer';
 import DependentContainer from './containers/DependentContainer';
 import AddNewComponent from './components/AddNewComponent';
 import NavComponent from './components/NavComponent';
+import LoginComponent from './components/LoginComponent';
 
 const App = () => {
   return (
@@ -17,11 +18,14 @@ const App = () => {
         <MainContainer />
         <NavComponent />
 
+
         <Routes>
-          <Route path='/' element={<UserProfileContainer />} />
+          <Route path='/' element={<LoginComponent />} />
+          <Route path='user' element={<UserProfileContainer />} />
           <Route path='dependent/:id' element={<DependentContainer />} />
           <Route path='addnew' element={<AddNewComponent />} />
         </Routes>
+
 
         {/* </MainContainer> */}
       </main>
