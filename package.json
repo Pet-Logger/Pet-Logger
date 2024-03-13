@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production nodemon server/server.js",
     "build": "webpack --mode production",
     "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose"
   },
   "keywords": [],
   "author": "",
@@ -22,8 +22,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^4.3.1",
-    "react-router-dom": "^6.22.3",
-    "supertest": "^6.3.4"
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
@@ -35,9 +34,11 @@
     "eslint-plugin-react": "^7.34.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
+    "jest": "^29.7.0",
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4",
+    "supertest": "^6.3.4",
     "svg-inline-loader": "^0.8.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
