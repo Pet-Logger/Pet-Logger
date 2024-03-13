@@ -5,6 +5,7 @@ import NavComponent from '../src/components/NavComponent.jsx';
 import '@testing-library/jest-dom';
 import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import DependentComponent from '../src/components/DependentComponent.jsx';
+import { act } from '@testing-library/react';
 
 
 const {
@@ -18,6 +19,8 @@ const {
   findAllByRole,
   fireEvent,
 } = TestingLibrary;
+
+
 import UserProfileContainer from '../src/containers/UserProfileContainer.jsx';
 
 const MOCK_DATA = [{
@@ -28,6 +31,11 @@ const MOCK_DATA = [{
   gender: 'Male',
 }];
 
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve(MOCK_DATA),
+  })
+);
 
 
 describe('Testing React Components', () => {
@@ -37,10 +45,10 @@ describe('Testing React Components', () => {
     beforeAll(() => {
       testApp =
         render();
-        // to te fetch:
-        // <BrowserRouter>
-        //   <App />
-        // </BrowserRouter>
+      // to test fetch:
+      // <BrowserRouter>
+      //   <App />
+      // </BrowserRouter>
     });
 
     test('Renders Title on Nav Bar', () => {
@@ -72,17 +80,22 @@ describe('Testing React Components', () => {
   });
 
 
-  describe('Testing Buttons', () => {
+  describe('Testing Buttons',  () => {
     
 
-    test('It should render a button', () => {
-      render(
-        <BrowserRouter>
-          <UserProfileContainer />
-        </BrowserRouter>
-      );
-      const button = screen.getByRole('button');
-      expect(button).toBeInTheDocument();
+    test('It should render a button', async () => {
+      
+      await act( async () => {
+        render(
+          <BrowserRouter>
+            <UserProfileContainer />
+          </BrowserRouter>
+        );
+      });
+
+      const button = screen.getAllByRole('button');
+      expect(button[0]).toBeInTheDocument();
+      expect(button[1]).toBeInTheDocument();
     });
   });
 });
